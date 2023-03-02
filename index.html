@@ -8,12 +8,12 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function MinutesToHours() {
-      const [amount, setAmount] = React.useState(0);
+      const [distance, setDistance] = React.useState(0);
       const [inverted, SetInverted] = React.useState(false);
       const onChange = (event) => {
-        setAmount(event.target.value);
+        setDistance(event.target.value);
       };
-      const reset = () => setAmount(0);
+      const reset = () => setDistance(0);
       const onFlip = () => {
         reset();
         SetInverted((current) => !current);
@@ -23,7 +23,7 @@
           <div>
             <label htmlFor='minutes'>Minutes</label>
             <input
-              value={inverted ? amount * 60 : amount}
+              value={inverted ? distance * 60 : distance}
               id='minutes'
               placeholder='Minutes'
               type='number'
@@ -35,7 +35,7 @@
           <div>
             <label htmlFor='hours'>Hours</label>
             <input
-              value={inverted ? amount : Math.round(amount / 60)}
+              value={inverted ? distance : Math.round(distance / 60)}
               id='hours'
               placeholder='Hours'
               type='number'
@@ -50,7 +50,44 @@
       );
     }
     function KmToMiles() {
-      return <h3>KM 2 M</h3>;
+      const [amount, setAmount] = React.useState('0');
+      const [inverted, SetInverted] = React.useState(true);
+      const onChange = (event) => {
+        setAmount(event.target.value);
+      };
+      const reset = () => setAmount(0);
+      const onFlip = () => {
+        reset();
+        SetInverted((current) => !current);
+      };
+      return (
+        <div>
+          <div>
+            <label htmlFor='km'>Km</label>
+            <input
+              value={inverted ? amount : amount / 1.609}
+              onChange={onChange}
+              id='km'
+              placeholder='Km'
+              type='number'
+              disabled={!inverted}
+            />
+          </div>
+          <div>
+            <label htmlFor='miles'>Miles</label>
+            <input
+              value={inverted ? amount * 1.609 : amount}
+              onChange={onChange}
+              id='miles'
+              placeholder='Miles'
+              type='number'
+              disabled={inverted}
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={onFlip}>{inverted ? 'Invert' : 'Turn back'}</button>
+        </div>
+      );
     }
     function App() {
       const [index, setIndex] = React.useState('xx');
