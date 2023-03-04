@@ -10,8 +10,11 @@ function App() {
       return;
     }
     setToDo('');
-    setToDos((currentArray) => [toDo, ...currentArray]);
+    // setToDos((currentArray) => [toDo, ...currentArray]); // 마지막 값이 위로
+    setToDos((currentArray) => [...currentArray, toDo]); // 순서대로
   };
+  console.log(toDos);
+  console.log(toDos.map((item, index) => <li key={index}>{item}</li>));
 
   return (
     <div>
@@ -25,6 +28,12 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
