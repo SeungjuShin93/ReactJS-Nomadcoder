@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/ReactJS-Nomadcoder.git/static/js/main.8141b240.js",
-    "index.html": "/ReactJS-Nomadcoder.git/index.html",
-    "main.8141b240.js.map": "/ReactJS-Nomadcoder.git/static/js/main.8141b240.js.map"
+    "main.js": "/ReactJS-Nomadcoder/static/js/main.8141b240.js",
+    "index.html": "/ReactJS-Nomadcoder/index.html",
+    "main.8141b240.js.map": "/ReactJS-Nomadcoder/static/js/main.8141b240.js.map"
   },
   "entrypoints": [
     "static/js/main.8141b240.js"
